@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trust Experience Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 30px auto;
+      background: #fdfdfd;
+      padding: 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      background: #f0f8ff;
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #result {
+      margin-top: 30px;
+      padding: 15px;
+      background: #e0ffe0;
+      border-left: 5px solid #4CAF50;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>When Trust Feels Steady or Not</h1>
+
+  <p>Think about a regular workday. Sometimes things feel clear and predictable. At other times, they feel uncertain, even if no one has done anything “wrong.”</p>
+
+  <p>Trust often shows up before we put words to it: in how decisions are communicated, in how changes are handled, and in how consistent responses feel over time.</p>
+
+  <p>This course starts here because trust is not only built through intentions or personalities. It is also shaped by what people experience repeatedly in their working environment.</p>
+
+  <p>You don’t need to analyze yourself. Just notice what feels familiar.</p>
+
+  <div class="question">
+    <p><strong>How predictable does your current work environment usually feel?</strong></p>
+    <label><input type="radio" name="predictability" value="very"> Very predictable</label>
+    <label><input type="radio" name="predictability" value="mostly"> Mostly predictable</label>
+    <label><input type="radio" name="predictability" value="sometimes"> Sometimes predictable, sometimes not</label>
+    <label><input type="radio" name="predictability" value="often"> Often unpredictable</label>
+    <label><input type="radio" name="predictability" value="hard"> Hard to say</label>
+  </div>
+
+  <button onclick="showResult()">Submit</button>
+
+  <div id="result"></div>
+
+  <script>
+    function showResult() {
+      const choice = document.querySelector('input[name="predictability"]:checked');
+      if (!choice) {
+        alert("Please select an option.");
+        return;
+      }
+
+      let result = "";
+      switch (choice.value) {
+        case "very":
+          result = "This response often reflects an environment where expectations, communication, and decisions feel steady. In such contexts, trust tends to operate quietly in the background, noticed less because things generally unfold as expected.";
+          break;
+        case "mostly":
+          result = "Choosing this can point to a context where clarity is present most of the time, with occasional moments of uncertainty. Many teams experience trust this way: generally stable, but sensitive to how changes or tensions are handled.";
+          break;
+        case "sometimes":
+          result = "This answer may highlight a mixed experience—where trust feels situational. Often, predictability depends on timing, leadership responses, or specific circumstances rather than being consistently present.";
+          break;
+        case "often":
+          result = "Selecting this can signal that responses, priorities, or decisions feel unclear or inconsistent. In such environments, trust is often experienced as something people actively think about, rather than something they can rely on quietly.";
+          break;
+        case "hard":
+          result = "Not being sure is a valid response. Sometimes unpredictability isn’t dramatic—it’s subtle, making trust harder to name. This answer often reflects environments where signals are mixed or difficult to interpret.";
+          break;
+      }
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+
+</body>
+</html>
